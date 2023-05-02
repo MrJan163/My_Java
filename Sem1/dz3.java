@@ -1,7 +1,10 @@
 package Sem1;
-/** Реализовать простой калькулятор**/
+/**
+ * Реализовать простой калькулятор
+ **/
 
 import java.util.Scanner;
+
 public class dz3 {
     static int scanNumber() {
         Scanner scan = new Scanner(System.in);
@@ -9,12 +12,14 @@ public class dz3 {
         return number;
 
     }
+
     static String scanOperations() {
         Scanner scan = new Scanner(System.in);
         String operations = scan.nextLine();
         return operations;
 
     }
+
     static int getResult(String opr, int num1, int num2) {
         int result = 0;
         switch (opr) {
