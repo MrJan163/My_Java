@@ -36,7 +36,7 @@ public class Dz1 {
     }
 
     public static void add(Map<String, List<String>> phoneBook) {
-        System.out.println("Если хотите выйте хотите перестать вводить номера введите 'stop'");
+        System.out.println("Если хотите выйти, наберите: 'stop'");
         System.out.println("Введите имя: ");
         String name = scanner();
         List<String> number = new ArrayList<>();
@@ -55,13 +55,17 @@ public class Dz1 {
 
     public static void menu(Map<String, List<String>> phonBook) {
         System.out.println(
-                "Введите команду из списка: find - найти контакт, add - добавить контакт, all - показать всю телефонную книгу, exit - выйти");
+                "Введите команду из списка: " +
+                        "find - найти контакт, " +
+                        "add - добавить контакт, " +
+                        "all - показать всю телефонную книгу, " +
+                        "exit - выйти");
         while (true) {
-            String comands = scanner();
-            if (comands.equals("exit")) {
+            String commands = scanner();
+            if (commands.equals("exit")) {
                 break;
             } else {
-                switch (comands) {
+                switch (commands) {
                     case "find" -> find(phonBook);
                     case "add" -> add(phonBook);
                     case "all" -> allBook(phonBook);
