@@ -53,7 +53,7 @@ public class Dz1 {
 
     }
 
-    public static void menu(Map<String, List<String>> phonBook) {
+    public static void menu(Map<String, List<String>> phoneBook) {
         System.out.println(
                 "Введите команду из списка: " +
                         "find - найти контакт, " +
@@ -66,9 +66,9 @@ public class Dz1 {
                 break;
             } else {
                 switch (commands) {
-                    case "find" -> find(phonBook);
-                    case "add" -> add(phonBook);
-                    case "all" -> allBook(phonBook);
+                    case "find" -> find(phoneBook);
+                    case "add" -> add(phoneBook);
+                    case "all" -> allBook(phoneBook);
                     default -> {
                     }
                 }
