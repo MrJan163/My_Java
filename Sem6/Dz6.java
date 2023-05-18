@@ -1,17 +1,27 @@
 package Sem6;
+// Подумать над структурой класса Ноутбук для магазина техники — выделить поля и методы. Реализовать в Java.
+//
+//Создать множество ноутбуков.
+//
+//Написать метод, который будет запрашивать у пользователя критерий (или критерии) фильтрации и выведет ноутбуки, отвечающие фильтру. Критерии фильтрации можно хранить в Map. Например:
+//
+//“Введите цифру, соответствующую необходимому критерию:
+//
+//1 - ОЗУ
+//
+//2 - Объём ЖД
+//
+//3 - Операционная система
+//
+//4 - Цвет …
+//
+//Далее нужно запросить минимальные и максимальные значения для указанных критериев — сохранить параметры фильтрации можно также в Map.
+//Отфильтровать ноутбуки их первоначального множества и вывести проходящие по условиям.
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class Dz6 {
-    public static String scanner() {
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
-    }
+
     public static void main(String[] args) {
         Notebook notebook1 = new Notebook("Samsung", "64", "2000", "Windows 11", "gold");
         Notebook notebook2 = new Notebook("Infix", "16", "1000", "Windows 10", "white");
@@ -26,6 +36,12 @@ public class Dz6 {
         sort(sel, notebooks);
 
     }
+    public static String scanner() {
+        Scanner scanner = new Scanner(System.in);
+        String scan = scanner.nextLine();
+        return scan;
+    }
+
 
 
 
@@ -100,7 +116,7 @@ public class Dz6 {
         if (temp.isEmpty()) {
             System.out.println("По введенным критериям ничего не найдено!");
         } else {
-            System.out.println("Вот что мы можем предложить: \n" + temp.toString());
+            System.out.println("Вот что есть в наличае: \n" + temp.toString());
         }
 
     }
