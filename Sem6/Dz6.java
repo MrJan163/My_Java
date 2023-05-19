@@ -116,7 +116,7 @@ public class Dz6 {
         if (temp.isEmpty()) {
             System.out.println("По введенным критериям ничего не найдено!");
         } else {
-            System.out.println("Вот что мы можем предложить: \n" + temp.toString());
+            System.out.println("Вот что мы можем предложить: \n" + temp);
         }
 
     }
