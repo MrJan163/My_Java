@@ -11,7 +11,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class Dz1 {
     public static String reader() {
@@ -24,22 +29,23 @@ public class Dz1 {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return sb.toString();
+        String str = sb.toString();
+        return str;
 
     }
 
-    public static void split(String str1) {
-        String str2 = str1.replace("{", "")
+    public static void split(String str) {
+        String str2 = str.replace("{", "")
                 .replace("}", "")
                 .replace("\"", "");
         String[] newStr = str2.split(", ");
 
         Map<String, String> dictionary = new HashMap<String, String>();
         for (String item : newStr) {
-            String[] strNew = item.split(":");
-            System.out.println(Arrays.toString(strNew));
+            String[] strnew = item.split(":");
+            System.out.println(Arrays.toString(strnew));
             for (int i = 0; i < newStr.length; i++) {
-                dictionary.put(strNew[0], strNew[1]);
+                dictionary.put(strnew[0], strnew[1]);
 
             }
         }
@@ -47,9 +53,9 @@ public class Dz1 {
         StringBuilder WHERE = new StringBuilder();
         Set<Map.Entry<String, String>> pair = dictionary.entrySet();
         List<Map.Entry<String, String>> list = new ArrayList<>(pair);
-        for (Map.Entry<String, String> stringStringEntry : list) {
-            if (!stringStringEntry.getValue().equals("null")) {
-                WHERE.append(stringStringEntry.getKey()).append(" = ").append(stringStringEntry.getValue()).append(" and ");
+        for (int i = 0; i < list.size(); i++) {
+            if (!list.get(i).getValue().equals("null")) {
+                WHERE.append(list.get(i).getKey() + " = " + list.get(i).getValue() + " and ");
 
             }
         }

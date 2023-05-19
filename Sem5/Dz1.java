@@ -2,7 +2,10 @@
 
 package Sem5;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Dz1 {
 
@@ -18,16 +21,15 @@ public class Dz1 {
 
     }
 
-    public static String scanner() {
-        Scanner scanner = new Scanner(System.in);
-        // scanner.close();
-        return scanner.nextLine();
-    }
 
     public static void find(Map<String, List<String>> phoneBook) {
         System.out.println("Введите имя: ");
         String name = scanner();
         System.out.println(phoneBook.get(name));
+    }
+
+    private static String scanner() {
+        return null;
     }
 
     public static void allBook(Map<String, List<String>> phoneBook) {
@@ -43,6 +45,7 @@ public class Dz1 {
         while (true) {
             System.out.println("Введите номер: ");
             String phone = scanner();
+            assert phone != null;
             if (phone.equals("stop")) {
                 break;
             } else {
@@ -62,6 +65,7 @@ public class Dz1 {
                         "exit - выйти");
         while (true) {
             String commands = scanner();
+            assert commands != null;
             if (commands.equals("exit")) {
                 break;
             } else {

@@ -18,7 +18,13 @@ package Sem6;
 //Далее нужно запросить минимальные и максимальные значения для указанных критериев — сохранить параметры фильтрации можно также в Map.
 //Отфильтровать ноутбуки их первоначального множества и вывести проходящие по условиям.
 
-import java.util.*;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
 
 public class Dz6 {
 
@@ -36,14 +42,12 @@ public class Dz6 {
         sort(sel, notebooks);
 
     }
+
     public static String scanner() {
         Scanner scanner = new Scanner(System.in);
         String scan = scanner.nextLine();
         return scan;
     }
-
-
-
 
     public static Map<String, String> selectCriteria() {
         Map<String, String> resultCriteria = new HashMap<>();
@@ -55,13 +59,7 @@ public class Dz6 {
             } else {
 
                 System.out.println(
-                        """
-                                Введите цифру, соответствующую необходимому критерию:
-                                 1 - Название
-                                 2 - ОЗУ
-                                 3 - Объем ЖД
-                                 4 - Операционная система
-                                 5 - Цвет""");
+                        "Введите цифру, соответствующую необходимому критерию: \n 1 - Название \n 2 - ОЗУ \n 3 - Объем ЖД \n 4 - Операционная система \n 5 - Цвет");
                 String key = scanner();
                 System.out.println("Введите значения для выбранного критерия: ");
                 String value = scanner();
@@ -77,36 +75,38 @@ public class Dz6 {
     public static void sort(Map<String, String> criteria, Set<Notebook> notebooks) {
 
         Set<Notebook> temp = new HashSet<>(notebooks);
-        for (Notebook Notebook : notebooks) {
+        for (Notebook notebook : notebooks) {
 
             for (Object pair : criteria.keySet()) {
 
-                if (pair.equals("1") && !Notebook.getName().equals(criteria.get(pair))) {
-                    temp.remove(Notebook);
+                if (pair.equals("1") && !notebook.getName().equals(criteria.get(pair))) {
+                    temp.remove(notebook);
                 }
                 for (Object pair1 : criteria.keySet()) {
 
-                    if (pair1.equals("2") && !Notebook.getRam().equals(criteria.get(pair1))) {
-                        temp.remove(Notebook);
+                    if (pair1.equals("2") && !notebook.getRam().equals(criteria.get(pair1))) {
+                        temp.remove(notebook);
 
                     }
                     for (Object pair2 : criteria.keySet()) {
 
-                        if (pair2.equals("3") && !Notebook.getHardDisk().equals(criteria.get(pair2))) {
-                            temp.remove(Notebook);
+                        if (pair2.equals("3") && !notebook.getHardDisk().equals(criteria.get(pair2))) {
+                            temp.remove(notebook);
 
                         }
                         for (Object pair3 : criteria.keySet()) {
 
-                            if (pair3.equals("4") && !Notebook.getOperatingSystem().equals(criteria.get(pair3))) {
-                                temp.remove(Notebook);
+                            if (pair3.equals("4") && !notebook.getOperatingSystem().equals(criteria.get(pair3))) {
+                                temp.remove(notebook);
 
                             }
-                            for (Object pair4 : criteria.keySet())
-                                if (pair4.equals("5") && !Notebook.getColour().equals(criteria.get(pair4))) {
-                                    temp.remove(Notebook);
+                            for (Object pair4 : criteria.keySet()) {
+
+                                if (pair4.equals("5") && !notebook.getColour().equals(criteria.get(pair4))) {
+                                    temp.remove(notebook);
 
                                 }
+                            }
                         }
                     }
                 }
@@ -116,7 +116,7 @@ public class Dz6 {
         if (temp.isEmpty()) {
             System.out.println("По введенным критериям ничего не найдено!");
         } else {
-            System.out.println("Вот что есть в наличае: \n" + temp.toString());
+            System.out.println("Вот что мы можем предложить: \n" + temp.toString());
         }
 
     }

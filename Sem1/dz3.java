@@ -13,14 +13,14 @@ public class dz3 {
 
     }
 
-    static String scanOperations() {
+    public static String scanOperations() {
         Scanner scan = new Scanner(System.in);
         String operations = scan.nextLine();
         return operations;
 
     }
 
-    static int getResult(String opr, int num1, int num2) {
+    public static int getResult(String opr, int num1, int num2) {
         int result = 0;
         switch (opr) {
             case "+":
